@@ -1,0 +1,71 @@
+<div
+  *ngIf="showBlock"
+  id="chatBot"
+  #chatContainer
+  class="chat-container"
+  [style.background-color]="backgroundColor"
+  [style.scrollbar-color]="scrollbarColor + ' ' + scrollbarTrackColor"
+  [style.top]="top"
+  [style.bottom]="bottom"
+  [style.right]="right"
+  [style.left]="left"
+  [style.width]="width"
+  [style.height]="height"
+  [style.border-radius]="borderRadius"
+  [style.box-shadow]="boxShadow"
+>
+  <button class="close-btn" (click)="animateClose()">✖</button>
+  <button class="clear-btn" (click)="clearChat()">🗑</button>
+
+  <div class="chat-messages">
+    <div
+      *ngFor="let msg of messages"
+      [ngClass]="{ user: msg.sender === 'user', bot: msg.sender === 'bot' }"
+      [style.background-color]="
+        msg.sender === 'user' ? userMassageColor : botMassageColor
+      "
+      [style.margin-left]="msg.sender === 'user' ? 'auto' : 'none'"
+      [style.width]="widthInPixels + 'px'"
+    >
+      {{ msg.text }}
+    </div>
+    <p *ngIf="loading">Loading...</p>
+    <p *ngIf="error" class="error">{{ error }}</p>
+  </div>
+
+  <div class="chat-input" [style.background-color]="backgroundColor">
+    <input
+      type="text"
+      [(ngModel)]="inputText"
+      (keydown.enter)="sendMessage()"
+      [style.background-color]="inputColor"
+      [placeholder]="placeholder"
+    />
+    <button
+      (click)="sendMessage()"
+      [disabled]="!inputText.trim() || loading"
+      [style.background-color]="sendColor"
+    >
+      ➤
+    </button>
+  </div>
+</div>
+
+<div
+  id="showChatBtn"
+  [style.background-color]="backgroundColor"
+  [style.border-radius]="borderRadius"
+  [style.background-image]="'url(' + btnBackgroundImage + ')'"
+  [style.background-size]="btnBackgroundSize"
+  [style.top]="btnTop"
+  [style.bottom]="btnBottom"
+  [style.right]="btnRight"
+  [style.left]="btnLeft"
+  [style.width]="btnWidth"
+  [style.height]="btnHeight"
+  [style.border-radius]="btnBorderRadius"
+  [style.box-shadow]="btnBoxShadow"
+  (click)="toggleChat()"
+>
+  {{ btnText }}
+</div>
