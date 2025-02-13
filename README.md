@@ -20,7 +20,7 @@ To install and use the component, follow these steps:
 
 1. Install dependencies (if not already installed):
    ```bash
-   npm install gsap axios js-cookie
+   npm install gsap axios js-cookie ai-bot-snippet
    ```
 
 2. Import the component into your Angular project:
