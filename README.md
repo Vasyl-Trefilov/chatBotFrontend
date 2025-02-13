@@ -1,3 +1,4 @@
+
 # ChatBot Angular Component
 
 ## Description
@@ -18,7 +19,6 @@ This is a chat bot component written in Angular that can be integrated into web 
 To install and use the component, follow these steps:
 
 1. Install dependencies (if not already installed):
-
    ```bash
    npm install gsap axios js-cookie
    ```
@@ -28,17 +28,15 @@ To install and use the component, follow these steps:
    In your module (e.g., `app.module.ts`), add the import:
 
    ```typescript
-   import { ChatBotComponent } from "ai-bot-snippet";
+   import { ChatBotComponent } from 'ai-bot-snippet';
    ```
 
    And add it to the `declarations` section (if using a regular module) or `imports` (if it's a standalone component):
 
    ```typescript
    @NgModule({
-     declarations: [
-       /* other components */
-     ],
-     imports: [, /* other modules */ ChatBotComponent],
+     declarations: [ /* other components */ ],
+     imports: [ /* other modules */, ChatBotComponent],
    })
    export class AppModule {}
    ```
@@ -46,7 +44,16 @@ To install and use the component, follow these steps:
 3. Use the component in your template:
 
    ```html
-   <app-chat-bot [aiUrl]="'http://your-api-url.com'" [show]="true" [width]="'350px'" [height]="'450px'" [backgroundColor]="'#fff'" [inputColor]="'#000'" [startMessage]="'Hello! How can I assist you today?'" [btnText]="'Chat with us!'"> </app-chat-bot>
+   <app-chat-bot
+     [aiUrl]="'http://your-api-url.com'"
+     [show]="true"
+     [width]="'350px'"
+     [height]="'450px'"
+     [backgroundColor]="'#fff'"
+     [inputColor]="'#000'"
+     [startMessage]="'Hello! How can I assist you today?'"
+     [btnText]="'Chat with us!'">
+   </app-chat-bot>
    ```
 
 ## Input Parameters
@@ -83,7 +90,16 @@ You can find the full list of parameters in the component code.
 ## Example
 
 ```html
-<app-chat-bot [show]="true" [width]="'400px'" [height]="'500px'" [backgroundColor]="'#fff'" [inputColor]="'#333'" [startMessage]="'Welcome to our chat service! How can we assist you today?'" [aiUrl]="'http://api.example.com/chat'" [btnText]="'Open Chat'"> </app-chat-bot>
+<app-chat-bot
+  [show]="true"
+  [width]="'400px'"
+  [height]="'500px'"
+  [backgroundColor]="'#fff'"
+  [inputColor]="'#333'"
+  [startMessage]="'Welcome to our chat service! How can we assist you today?'"
+  [aiUrl]="'http://api.example.com/chat'"
+  [btnText]="'Open Chat'">
+</app-chat-bot>
 ```
 
 ## Notes
