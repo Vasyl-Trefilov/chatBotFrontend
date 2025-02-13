@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ChatBotComponent } from '../snippet/chat-bot.component';
+import { ChatBotComponent } from 'ai-bot-snippet';
 
 @Component({
   selector: 'app-root',
